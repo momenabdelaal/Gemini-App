@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 pluginManagement {
     repositories {
         google {
@@ -9,6 +11,9 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
+        maven {
+            url = uri("https://plugins.gradle.org/m2/")
+        }
     }
 }
 dependencyResolutionManagement {
@@ -19,6 +24,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "App Architecture Jetpack Compose"
+rootProject.name = "Gemini Api Android"
 include(":app")
  

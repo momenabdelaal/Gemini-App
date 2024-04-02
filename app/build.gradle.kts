@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.hilt)
+    id("com.google.android.secrets-gradle-plugin")
     id("kotlin-kapt")
 }
 
@@ -11,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "com.mobly.app"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -48,7 +49,12 @@ android {
     }
     buildFeatures {
         compose = true
+//        buildConfig = true
     }
+//    secrets {
+//        defaultPropertiesFileName = "local.defaults.properties"
+//    }
+
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
     }
@@ -73,6 +79,9 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.navigation.runtime.ktx)
+    implementation(libs.androidx.benchmark.common)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -97,4 +106,6 @@ dependencies {
     //okio
     implementation(libs.squareup.okio)
     implementation(libs.androidx.security.crypto)
+    implementation(libs.generativeai)
+
 }
